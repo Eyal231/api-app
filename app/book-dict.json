@@ -1,0 +1,39 @@
+[
+  
+    {
+        "author": "eyal" ,
+        "title": "Harry Potter and the Sorcerer Stone",
+        "genre": "Fantasy",
+        "publication_year": 1997,
+        "isbn": "978-0439708180"
+    },
+    {
+        "author": "George Orwell",
+        "title": "1984",
+        "genre": "Dystopian",
+        "publication_year": 1949,
+        "isbn": "978-0451524935"
+    },
+    {
+        "author": "Harper Lee",
+        "title": "To Kill a Mockingbird",
+        "genre": "Fiction",
+        "publication_year": 1960,
+        "isbn": "978-0061120084"
+    },
+    {
+        "author": "Mark Twain",
+        "title": "The Adventures of Huckleberry Finn",
+        "genre": "Adventure",
+        "publication_year": 1884,
+        "isbn": "978-0143107323"
+    },
+    {
+        "author": "J.R.R. Tolkien",
+        "title": "The Lord of the Rings",
+        "genre": "Fantasy",
+        "publication_year": 1954,
+        "isbn": "978-0544003415"
+    }
+  
+]
