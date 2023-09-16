@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-deployment
+spec:
+  replicas: 2 # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: book-service
+  template:
+    metadata:
+      labels:
+        app: book-service
+    spec:
+      containers:
+        - name: book-service
+          image: eyaldevops/api-project:latest # Use your Docker image
+          ports:
+            - containerPort: 3001 # The port your FastAPI app is running on
