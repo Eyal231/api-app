@@ -43,9 +43,9 @@ def get_author(author_name: str):
             }]
             return author_info
         else:
-            raise HTTPException(status_code=404, detail="Author not found")
+            raise HTTPException(status_code=404, detail="syntex shold be: /author/<author_name>")
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=500, detail="Author not found")
 
 #books
 @app.get("/book/{book_title}")
@@ -67,9 +67,9 @@ def get_book(book_title: str):
             }]
             return book_info
         else:
-            raise HTTPException(status_code=404, detail="Book not found")
+            raise HTTPException(status_code=404, detail="syntex shold be: /book/<book_title>")
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=500, detail="Book not found")
 
 
     
