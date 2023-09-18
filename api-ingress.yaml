@@ -8,14 +8,14 @@ spec:
    #host: api.my-app.com # Change this to your actual domain
   - http:
         paths:
-          - path: /author
+          - path: /author/
             pathType: Prefix
             backend:
               service:
                 name: author-service
                 port:
                   number: 8080
-          - path: /book
+          - path: /book/
             pathType: Prefix
             backend:
               service:
