@@ -1,8 +1,8 @@
-git clone git@github.com:Eyal231/api-app.git
+1. **git clone git@github.com:Eyal231/api-app.git**
 
-source runall
+2. **source runall**
 
-testing:
+****testing:****
 - curl 192.168.58.2/
   > "welcome to my book api" server XXX
 - curl 192.168.58.2/book/1984
