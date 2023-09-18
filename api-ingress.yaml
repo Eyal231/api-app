@@ -3,9 +3,10 @@ kind: Ingress
 metadata:
   name: api-ingress
 spec:
+  ingressClassName: nginx
   rules:
-    - host: api.my-app.com # Change this to your actual domain
-      http:
+   #host: api.my-app.com # Change this to your actual domain
+  - http:
         paths:
           - path: /author
             pathType: Prefix
@@ -13,11 +14,18 @@ spec:
               service:
                 name: author-service
                 port:
-                  number: 80
+                  number: 8080
           - path: /book
             pathType: Prefix
             backend:
               service:
                 name: book-service
                 port:
-                  number: 80
+                  number: 8080
+          - path: /  # Support the endpoint with a trailing slash
+            pathType: Prefix
+            backend:
+              service:
+                name: author-service  # You can use any appropriate service here
+                port:
+                  number: 8080

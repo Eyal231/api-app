@@ -1,0 +1,5 @@
+kubectl apply -f book-deployment.yaml
+kubectl apply -f author-deployment.yaml
+kubectl apply -f book-service.yaml
+kubectl apply -f author-service.yaml
+kubectl apply -f api-ingress.yaml

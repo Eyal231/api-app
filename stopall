@@ -1,0 +1,5 @@
+kubectl delete -f book-deployment.yaml
+kubectl delete -f author-deployment.yaml
+kubectl delete -f book-service.yaml
+kubectl delete -f author-service.yaml
+kubectl delete -f api-ingress.yaml
