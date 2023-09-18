@@ -42,11 +42,13 @@ def get_author(author_name: str):
                 "status": "Running"
             }]
             return author_info
-        else:
-            raise HTTPException(status_code=404, detail="syntex shold be: /author/<author_name>")
+         else:
+            raise HTTPException(status_code=404, detail="Author not found")
+    except HTTPException as e:
+        # Re-raise the HTTPException with the appropriate status code and detail message
+        raise e
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Author not found")
-
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 #books
 @app.get("/book/{book_title}")
 def get_book(book_title: str):
@@ -66,15 +68,10 @@ def get_book(book_title: str):
                  "status": "Running"
             }]
             return book_info
-        else:
-            raise HTTPException(status_code=404, detail="syntex shold be: /book/<book_title>")
+         else:
+            raise HTTPException(status_code=404, detail="book not found")
+    except HTTPException as e:
+        # Re-raise the HTTPException with the appropriate status code and detail message
+        raise e
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Book not found")
-
-
-    
-    
-   # for book_id, book_info in book_dict.items():
-    #    if book_info['title'] == book_title:
-     #       return book_info
-   # return {"error": "Book not found"}
+        raise HTTPException(status_code=500, detail="Internal Server Error")
