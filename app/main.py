@@ -30,7 +30,7 @@ def get_intro():
 @app.get("/author/{author_name:path}")
 def get_author(author_name: str):
     try:
-        if author_name == "":
+        if not author_name:
             raise HTTPException(status_code=400, detail="Bad Request - use: book/<author_name>")
         # Check if the author_name is present in the book_dict
         if any(book['author'] == author_name for book in book_dict):
@@ -55,7 +55,7 @@ def get_author(author_name: str):
 @app.get("/book/{book_title:path}")
 def get_book(book_title: str):
     try:
-        if book_title == "":
+        if not book_title:
             raise HTTPException(status_code=400, detail="Bad Request - use: book/<book_title>")
         matching_books = [book for book in book_dict if book['title'] == book_title]
         if matching_books:
