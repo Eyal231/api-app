@@ -27,7 +27,7 @@ def get_intro():
      ]
 
 #authors
-@app.get("/author/{author_name}")
+@app.get("/author/{author_name:path}")
 def get_author(author_name: str):
     try:
         if author_name == "":
@@ -52,7 +52,7 @@ def get_author(author_name: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
 #books
-@app.get("/book/{book_title}")
+@app.get("/book/{book_title:path}")
 def get_book(book_title: str):
     if book_title == "":
             raise HTTPException(status_code=400, detail="Bad Request - use: book/<book_title>")
