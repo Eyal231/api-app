@@ -30,6 +30,8 @@ def get_intro():
 @app.get("/author/{author_name}")
 def get_author(author_name: str):
     try:
+        if author_name == "":
+            raise HTTPException(status_code=400, detail="Bad Request - use: book/<author_name>")
         # Check if the author_name is present in the book_dict
         if any(book['author'] == author_name for book in book_dict):
             author_books = [book['title'] for book in book_dict if book['author'] == author_name]
@@ -52,26 +54,21 @@ def get_author(author_name: str):
 #books
 @app.get("/book/{book_title}")
 def get_book(book_title: str):
-    try:
-        # Check if the book_title is present in the book_dict
+    if book_title == "":
+            raise HTTPException(status_code=400, detail="Bad Request - use: book/<book_title>")
         matching_books = [book for book in book_dict if book['title'] == book_title]
         if matching_books:
-            # Assuming book titles are unique, return the first match
-            book_info = [{
+            book_info = {
                 'book': matching_books[0]['title'],
                 'genre': matching_books[0]['genre'],
                 'author': matching_books[0]['author']
-            },
-            {
-                 "server": "Book API Server",
-                 "version": "1.0",
-                 "status": "Running"
-            }]
+            }
             return book_info
-         else:
-            raise HTTPException(status_code=404, detail="book not found")
+        else:
+            raise HTTPException(status_code=404, detail="Book not found")
     except HTTPException as e:
         # Re-raise the HTTPException with the appropriate status code and detail message
         raise e
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
