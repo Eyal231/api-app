@@ -54,7 +54,8 @@ def get_author(author_name: str):
 #books
 @app.get("/book/{book_title:path}")
 def get_book(book_title: str):
-    if book_title == "":
+    try:
+        if book_title == "":
             raise HTTPException(status_code=400, detail="Bad Request - use: book/<book_title>")
         matching_books = [book for book in book_dict if book['title'] == book_title]
         if matching_books:
